@@ -22,11 +22,14 @@ if __name__ == '__main__':
     # get_document_info_path.run()
     # get_document_info_stream.run()
     # get_supported_formats.run()
+    # accept_reject_revisions.run()
+    # get_metered_credits_limit.run()
 
     # # Advanced usage/Saving
     # set_document_metadata_source.run()
     # set_document_metadata_target.run()
     # set_password_for_resultant_document.run()
+    # set_document_metadata_user_defined.run()
     
     # # Advanced usage/Loading
     # load_document_from_local_disc.run()
@@ -34,6 +37,9 @@ if __name__ == '__main__':
     # load_text_from_string.run()
 
     # # Advanced usage/Comparison
+    # accept_reject_detected_changes_path.run()
+    # accept_reject_detected_changes_stream.run()
+    # compare_documents_settings_stream.run()
     # compare_multiple_documents_stream.run()
     # compare_multiple_documents_settings_path.run()
     # compare_multiple_documents_settings_stream.run()
@@ -44,3 +50,8 @@ if __name__ == '__main__':
     # compare_folders.compare_folder_save_as_html()
     # compare_multiple_documents_protected_stream.compare_multiple_protected_words_documents()
     # compare_multiple_documents_protected_path.compare_multiple_protected_words_documents()
+    # set_author_of_changes.run()
+    # UseCompareOptions.ignore_header_footer()
+    # UseCompareOptions.set_output_paper_size()
+    # UseCompareOptions.word_track_changes()
+    # use_load_options.load_custom_fonts()
