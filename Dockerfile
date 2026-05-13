@@ -1,8 +1,20 @@
 FROM python:3.13-slim
 
-# ICU is the only system dependency required by the .NET runtime
-RUN apt-get update -qq \
-    && apt-get install -y --no-install-recommends libicu-dev \
+# System dependencies:
+#   libicu-dev  - required by the .NET runtime
+#   libgdiplus  - required for image comparison code paths (System.Drawing)
+#   ttf-mscorefonts-installer - provides Arial and other MS core fonts used during rendering
+#   fontconfig  - font cache management
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+    && sed -i 's/^Components: main$/Components: main contrib/' /etc/apt/sources.list.d/debian.sources 2>/dev/null \
+    || sed -i 's/main$/main contrib/' /etc/apt/sources.list \
+    ; apt-get update -qq \
+    && apt-get install -y --no-install-recommends \
+        libicu-dev \
+        libgdiplus \
+        fontconfig \
+        ttf-mscorefonts-installer \
+    && fc-cache -f \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
